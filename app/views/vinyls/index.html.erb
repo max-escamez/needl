@@ -1,0 +1,21 @@
+<h1>All the vinyls we need : </h1>
+<%= link_to 'Submit a new vinyl', new_vinyl_path %>
+<table>
+  <tr>
+    <th>Album title</th>
+    <th>Description</th>
+    <th></th>
+  </tr>
+
+  <% @vinyls.each do |vinyl| %>
+    <tr>
+      <td><%= vinyl.album_title %></td>
+      <td><%= vinyl.description %></td>
+      <td><%= link_to 'Show', vinyl_path(vinyl) %></td>
+      <td><%= link_to 'Edit', edit_vinyl_path(vinyl) %></td>
+      <td><%= link_to 'Delete', vinyl_path(vinyl),
+                      method: :delete,
+                      data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,10 @@
+<p>
+  <strong><%= @vinyl.album_title %></strong>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @vinyl.description %>
+</p>
+<%= link_to 'Edit', edit_vinyl_path(@vinyl) %> |
+<%= link_to 'Back', vinyls_path %>

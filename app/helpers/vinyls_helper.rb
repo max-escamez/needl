@@ -1,0 +1,2 @@
+module VinylsHelper
+end
