@@ -1,15 +1,14 @@
 <p>
-  <strong>Commenter:</strong>
+  <strong>By:</strong>
   <%= comment.commenter %>
 </p>
 
 <p>
-  <strong>Comment:</strong>
   <%= comment.body %>
 </p>
 
 <p>
-  <%= link_to 'Destroy Comment', [comment.vinyl, comment],
+  <%= link_to 'Delete', [comment.vinyl, comment],
               method: :delete,
               data: { confirm: 'Are you sure?' } %>
 </p>

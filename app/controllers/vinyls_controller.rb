@@ -1,6 +1,6 @@
 class VinylsController < ApplicationController
 
-  http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+  #http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
 
   def index
     @vinyls = Vinyl.all
@@ -47,7 +47,7 @@ class VinylsController < ApplicationController
 
   private
   def vinyl_params
-    params.require(:vinyl).permit(:album_title, :description)
+    params.require(:vinyl).permit(:album_title,:artist,:description)
   end
 
 end

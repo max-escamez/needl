@@ -1,8 +1,11 @@
-<h1>All the vinyls we need : </h1>
+<h1>needl</h1>
+<h1>All the vinyls we need</h1>
+
 <%= link_to 'Submit a new vinyl', new_vinyl_path %>
 <table>
   <tr>
-    <th>Album title</th>
+    <th>Album</th>
+    <th>Artist</th>
     <th>Description</th>
     <th></th>
   </tr>
@@ -10,6 +13,8 @@
   <% @vinyls.each do |vinyl| %>
     <tr>
       <td><%= vinyl.album_title %></td>
+      <td><%= vinyl.artist%></td>
+
       <td><%= vinyl.description %></td>
       <td><%= link_to 'Show', vinyl_path(vinyl) %></td>
       <td><%= link_to 'Edit', edit_vinyl_path(vinyl) %></td>
