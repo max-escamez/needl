@@ -6,6 +6,12 @@
   <%= @vinyl.artist %>
 </p>
 
+<% if @vinyl.image.attached? %>
+  <p>
+    <%= image_tag @vinyl.image.variant(resize: "500x500") %>
+  </p>
+<% end %>
+
 <p>
   <%= @vinyl.description %>
 </p>

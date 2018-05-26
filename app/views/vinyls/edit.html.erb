@@ -1,5 +1,28 @@
 <h1>Edit your vinyl</h1>
 
-<%= render 'form' %>
+<%= form_with model: @vinyl, local: true do |form| %>
+
+  <p><h1><%= @vinyl.album_title %></h1>
+
+  <p>
+    <%= @vinyl.artist %>
+  </p>
+
+  <% if @vinyl.image.attached? %>
+    <p>
+      <%= image_tag @vinyl.image %>
+    </p>
+  <% end %>
+  
+  <p>
+    <%= form.label :description %><br>
+    <%= form.text_area :description %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
 
 <%= link_to 'Back', vinyls_path %>
