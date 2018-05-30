@@ -68,3 +68,5 @@ gem 'image_processing'
 gem 'bootstrap'
 
 gem 'jquery-rails'
+
+gem 'materialize-sass', '~> 1.0.0.rc1'
