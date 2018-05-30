@@ -64,3 +64,7 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'attach', '~> 1.0.1'
 
 gem 'image_processing'
+
+gem 'bootstrap'
+
+gem 'jquery-rails'
