@@ -1,13 +1,85 @@
 // Place all the styles related to the vinyls controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.navbar{
+  background-color: #e2f2f7;
+  margin-bottom: 20px;
+}
+
+.show-cover{
+  display: inline;
+  float: left;
+  width: 50%;
+  padding: 0 30px 0 30px;
+}
+
+.show-info{
+  display: inline;
+  float: right;
+  width: 50%;
+}
+
+.show-comments{
+  width: 100%;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  float: bottom;
+}
 
 .vinyls{
   display: grid;
   grid-template-columns: repeat(auto-fill,minmax(250px,1fr));
   grid-gap: 30px;
   margin: 50px 5% 50px 5%;
+
+  .vinyl{
+    position: relative;
+    overflow: hidden;
+    max-width: 298px;
+    max-height: 298px;
+
+    .cover{
+      -webkit-transition: 0.5s ease;
+      transition: 0.5s ease;
+    }
+
+    &:hover .cover{
+      -webkit-transform: scale(1.05);
+      transform: scale(1.05);
+    }
+
+    .vinyl-overlay{
+      width:100%;
+      height:40px;
+      background:rgba(0,0,0,.6);
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      opacity: 0;
+      -webkit-transition: all 0.4s ease-in-out 0s;
+      -moz-transition: all 0.4s ease-in-out 0s;
+      transition: all 0.4s ease-in-out 0s;
+
+      .album-title-overlay, .artist-overlay {
+        color: white;
+        opacity: 0.8;
+        font-size: 13px;
+        font-weight: 100;
+        margin: 0 10px 0 10px;
+      }
+    }
+
+    &:hover .vinyl-overlay{
+      opacity: 1;
+    }
+  }
 }
 
-.vinyl{
+
+
+
+.btn-floating{
+  background: #e2f2f7;
 }

@@ -1,29 +1,42 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e2f2f7;">
-  <a class="navbar-brand" href="#">needl</a>
+<nav class="navbar sticky-top navbar-expand-lg navbar-light">
+  <a class="navbar-brand" href="#" style="font-size: 400%">needl</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent" >
-
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <span class="navbar-text">
+      All the vinyls we need
+    </span>
   </div>
 </nav>
-<h3>All the vinyls we need</h3>
 
-<%= link_to 'Submit a new vinyl', new_vinyl_path %>
-  <div class="vinyls" align="center">
-    <% @vinyls.each do |vinyl| %>
-      <div class="vinyl">
+<%= link_to new_vinyl_path do %>
+  <div class="fixed-action-btn">
+    <div class="btn-floating btn-large waves-effect waves-light">
+      <i class="material-icons">add</i>
+    </div>
+  </div>
+<% end %>
+
+<div class="vinyls" align="center">
+  <% @vinyls.each do |vinyl| %>
+    <%= link_to vinyl_path(vinyl) do %>
+      <div class="vinyl shadow rounded">
         <% if vinyl.image.attached? %>
-          <%= link_to vinyl_path(vinyl) do %>
-            <%= image_tag(vinyl.image.variant(resize: "300x300"), class: "img-fluid") %>
-          <% end %>
+          <%= image_tag(vinyl.image.variant(resize: "300x300"), class: "img-fluid cover") %>
         <% end %>
+        <div class="vinyl-overlay">
+          <div class="album-title-overlay text-capitalize text-truncate"><%= vinyl.album_title %></div>
+          <div class="artist-overlay text-capitalize text-truncate"><%= vinyl.artist %></div>
+        </div>
       </div>
     <% end %>
-  </div>
+  <% end %>
+</div>
 
 
 
