@@ -1,13 +1,10 @@
 // Place all the styles related to the vinyls controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
-.navbar{
-  background-color: #5F7C8B;
-  margin-bottom: 20px;
+$primary-color: #5F7C8B;
 
-  .navbar-brand{
-    color: white;
-  }
+.btn-floating{
+  background: $primary-color !important;
 }
 
 .show-top{
@@ -52,7 +49,7 @@
 
 
 .submit-btn{
-  background: #438ead;
+  background: $primary-color;
 }
 
 .vinyls{
@@ -105,6 +102,3 @@
   }
 }
 
-.btn-floating{
-  background: #e2f2f7;
-}

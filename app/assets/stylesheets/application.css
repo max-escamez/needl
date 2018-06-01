@@ -11,10 +11,30 @@
  * It is generally better to create a new file per style scope.
  *
  */
-
+@import "bootstrap";
+@import "materialize";
 @import "comments.scss";
 @import "vinyls.scss";
 @import "welcome.scss";
-@import "bootstrap";
-@import "materialize";
+
+.navbar {
+    background-color: #5F7C8B;
+    margin-bottom: 20px;
+}
+
+a.navbar-brand {
+    font-weight: lighter;
+    font-size: 400%;
+    color: white !important;
+}
+
+.my-navbar-text{
+    font-weight: lighter;
+}
+
+.btn-login{
+    border-radius: 24px;
+}
+
+
 
