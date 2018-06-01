@@ -11,6 +11,7 @@
   </head>
 
   <body>
+
   <nav class="navbar sticky-top navbar-expand-lg navbar-light">
     <% link_to "needl", vinyls_path , class:"navbar-brand"%>
     <a class="navbar-brand" href="#" style="font-size: 400%; color: white;">needl</a>
@@ -25,7 +26,21 @@
     </div>
   </nav>
 
+  <div>
+    <% if current_user %>
+      Signed in as <strong><%= current_user.name %></strong>!
+      <%= image_tag(current_user.image, size: "45") %>
 
+      <%= link_to "Sign out", signout_path, id: "sign_out" %>
+
+  <% else %>
+      <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in" %>
+    <% end %>
+  </div>
+
+  <div>
     <%= yield %>
+  </div>
+
   </body>
 </html>
