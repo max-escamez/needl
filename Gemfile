@@ -68,3 +68,5 @@ gem 'image_processing'
 gem 'bootstrap'
 
 gem 'jquery-rails'
+
+gem 'omniauth-google-oauth2', '~> 0.2.1'
