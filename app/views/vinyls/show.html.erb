@@ -1,37 +1,24 @@
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-<nav class="navbar sticky-top navbar-expand-lg navbar-light">
-  <%= link_to "needl", vinyls_path , class:"navbar-brand" , style:"font-size: 400%"%>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
+<div class="show-top">
 
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <span class="navbar-text">
-      All the vinyls we need
-    </span>
-  </div>
-</nav>
-
-
-
-<% if @vinyl.image.attached? %>
   <div class="show-cover">
-    <%= image_tag @vinyl.image.variant(resize: "500x500"), class: "img-fluid" %>
+    <% if @vinyl.image.attached? %>
+      <%= image_tag @vinyl.image.variant(resize: "500x500"), class: "img-fluid shadow rounded" %>
+    <% end %>
   </div>
-<% end %>
 
-<div class="show-info">
+  <div class="show-info">
+    <h1><%= @vinyl.album_title %></h1>
+    <p>
+      <%= @vinyl.artist %>
+    </p>
+    <p>
+      <%= @vinyl.description %>
+    </p>
+  </div>
 
-  <h1><%= @vinyl.album_title %></h1>
-  <p>
-    <%= @vinyl.artist %>
-  </p>
-
-  <p>
-    <%= @vinyl.description %>
-  </p>
 </div>
 
 <div class="show-comments">

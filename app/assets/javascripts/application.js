@@ -14,6 +14,8 @@
 //= require activestorage
 //= require turbolinks
 //= require jquery3
+//= require jquery.turbolinks
+//= require jquery_ujs
 //= require popper
 //= require bootstrap
 //= require materialize

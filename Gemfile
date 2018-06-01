@@ -69,4 +69,6 @@ gem 'bootstrap'
 
 gem 'jquery-rails'
 
+gem 'jquery-turbolinks'
+
 gem 'materialize-sass', '~> 1.0.0.rc1'
