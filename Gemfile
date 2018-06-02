@@ -69,6 +69,8 @@ gem 'bootstrap'
 
 gem 'jquery-rails'
 
+gem 'jquery-turbolinks'
+
 gem 'omniauth-google-oauth2', '~> 0.2.1'
 
 gem 'materialize-sass', '~> 1.0.0.rc1'

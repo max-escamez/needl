@@ -14,32 +14,41 @@
     </div>
   <% end %>
 
-  <p>
-    <%= form.label "Album"%><br>
-    <%= form.text_field :album_title, required: true %>
-  </p>
+  <div class="form">
 
-  <p>
-    <%= form.label :artist %><br>
-    <%= form.text_field :artist, required: true %>
-  </p>
+    <div class="form-fill" >
+      <p>
+        <%= form.label "Album" %><br>
+        <%= form.text_field :album_title, required: true ,class:"form-control" %>
+      </p>
 
-  <p>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </p>
+      <p>
+        <%= form.label :artist %><br>
+        <%= form.text_field :artist, required: true ,class:"form-control"%>
+      </p>
 
-  <p>
-    <%= form.label :image, 'Cover' %><br>
-    <%= form.file_field :image, direct_upload: true, accept: 'image/png,image/gif,image/jpeg', required: true %>
-  </p>
+      <p>
+        <%= form.label :description %><br>
+        <%= form.text_area :description , class:"form-control"%>
+      </p>
 
-  <% if @vinyl.image.attached? %>
-    <%= image_tag @vinyl.image%>
-  <% end %>
+      <p>
+        <%= form.label :image, 'Cover' %><br>
+        <%= form.file_field :image, direct_upload: true, accept: 'image/png,image/gif,image/jpeg', required: true, id:"form-cover" %>
+      </p>
 
-  <p>
-    <%= form.submit "Submit"%>
-  </p>
+      <% if @vinyl.image.attached? %>
+        <%= image_tag @vinyl.image%>
+      <% end %>
+    </div>
+
+    <div class="form-preview rounded" id="form-preview">
+    </div>
+
+  </div>
+
+  <div  class="center" >
+    <%= form.submit "Submit", class:"btn-lg submit-btn" %>
+  </div>
 
 <% end %>

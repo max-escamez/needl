@@ -10,11 +10,44 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require_self
+ *= require_tree .
  */
-
+@import "bootstrap";
+@import "materialize";
 @import "comments.scss";
 @import "vinyls.scss";
 @import "welcome.scss";
-@import "bootstrap";
-@import "materialize";
+
+body{
+    background-color: #CFD8DC !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.navbar {
+    background-color: #5F7C8B;
+    margin-bottom: 20px;
+}
+
+.navbar-logo{
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}
+
+a.navbar-brand {
+    font-weight: lighter;
+    font-size: 350%;
+    color: white !important;
+}
+
+.my-navbar-text{
+    font-weight: lighter;
+}
+
+.btn-login{
+    border-radius: 24px;
+}
+
+
 
