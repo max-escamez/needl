@@ -8,9 +8,10 @@ Rails.application.routes.draw do
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
   resources :sessions, only: [:create, :destroy]
-  resource :home, only: [:show]
+
   resources :vinyls do
     resources :comments
   end
+
   root to: 'vinyls#index' # tells Rails to map requests to the root of the application to the vinyls controller's index action
 end

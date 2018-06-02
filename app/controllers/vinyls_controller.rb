@@ -1,6 +1,6 @@
 class VinylsController < ApplicationController
 
-  #http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
+  before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
 
   def index
     @vinyls = Vinyl.all
@@ -19,7 +19,7 @@ class VinylsController < ApplicationController
   end
 
   def create
-    @vinyl = Vinyl.new(vinyl_params)
+    @vinyl = current_user.vinyls.new(vinyl_params)
 
     if @vinyl.save
       redirect_to @vinyl
@@ -29,9 +29,7 @@ class VinylsController < ApplicationController
   end
 
   def update
-    @vinyl = Vinyl.find(params[:id])
-
-    if @vinyl.update(vinyl_params)
+    if current_user.vinyls.find(params[:id]).update(vinyl_params)
       redirect_to @vinyl
     else
       render 'edit'
@@ -39,15 +37,21 @@ class VinylsController < ApplicationController
   end
 
   def destroy
-    @vinyl = Vinyl.find(params[:id])
-    @vinyl.destroy
-
+    current_user.vinyls.find(params[:id]).destroy
     redirect_to vinyls_path
   end
 
   private
   def vinyl_params
     params.require(:vinyl).permit(:album_title,:artist,:description,:image)
+  end
+
+  private
+  def require_login
+    unless current_user
+      flash[:error] = "You must be logged in to submit a vinyl"
+      redirect_to "/auth/google_oauth2" # halts request cycle
+    end
   end
 
 end
