@@ -21,35 +21,3 @@
     <% end %>
   <% end %>
 </div>
-
-
-
-<table>
-  <tr>
-    <th>Cover</th>
-    <th>Album</th>
-    <th>Artist</th>
-    <th>Description</th>
-    <th></th>
-  </tr>
-
-  <% @vinyls.each do |vinyl| %>
-    <tr>
-      <% if vinyl.image.attached? %>
-        <td>
-          <%= link_to vinyl_path(vinyl) do %>
-            <%= image_tag vinyl.image.variant(resize: "200x200") %>
-          <% end %>
-        </td>
-      <% end %>
-      <td><%= vinyl.album_title %></td>
-      <td><%= vinyl.artist %></td>
-      <td><%= vinyl.description %></td>
-
-      <td><%= link_to 'Edit', edit_vinyl_path(vinyl) %></td>
-      <td><%= link_to 'Delete', vinyl_path(vinyl),
-                      method: :delete,
-                      data: {confirm: 'Are you sure?'} %></td>
-    </tr>
-  <% end %>
-</table>

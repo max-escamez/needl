@@ -14,6 +14,13 @@
     <p>
       <%= @vinyl.description %>
     </p>
+
+    <div class="control-panel" >
+      <%= link_to 'Edit', edit_vinyl_path(@vinyl), class: "btn btn-control" %>
+      <%= link_to 'Delete', vinyl_path(@vinyl),
+                      method: :delete,
+                      data: {confirm: 'Are you sure?'} , class: "btn btn-control"%>
+    </div>
   </div>
 
 </div>
