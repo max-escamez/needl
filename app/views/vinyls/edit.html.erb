@@ -10,7 +10,7 @@
 
   <% if @vinyl.image.attached? %>
     <p>
-      <%= image_tag @vinyl.image %>
+      <%= image_tag @vinyl.image.variant(resize: "500x500")%>
     </p>
   <% end %>
   
@@ -20,7 +20,7 @@
   </p>
 
   <p>
-    <%= form.submit %>
+    <%= form.submit "Submit"%>
   </p>
 
 <% end %>

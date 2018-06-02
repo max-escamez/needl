@@ -1,7 +1,6 @@
 <p>
-  <strong>By:</strong>
-  <%= comment.commenter %>
-
+  By: <%= comment.user.name %>
+  <%= image_tag(comment.user.image, size: "45") %>
 </p>
 
 <p>
@@ -9,7 +8,9 @@
 </p>
 
 <p>
-  <%= link_to 'Delete', [comment.vinyl, comment],
+  <% if comment.user == current_user %>
+    <%= link_to 'Delete', [comment.vinyl, comment],
               method: :delete,
               data: { confirm: 'Are you sure?' } %>
+  <% end %>
 </p>

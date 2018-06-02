@@ -7,6 +7,8 @@
   </div>
 
   <div class="show-info">
+    Posted by : <%= @vinyl.user.name %>
+
     <h1><%= @vinyl.album_title %></h1>
     <p>
       <%= @vinyl.artist %>
@@ -33,7 +35,11 @@
   <%= render 'comments/form' %>
 </div>
 
+<% if @vinyl.user == current_user %>
+  <td><%= link_to 'Delete', vinyl_path(@vinyl),
+                method: :delete,
+                data: {confirm: 'Are you sure?'} %></td> |
+  <%= link_to 'Edit', edit_vinyl_path(@vinyl) %> |
+<% end %>
 
-
-<%= link_to 'Edit', edit_vinyl_path(@vinyl) %> |
 <%= link_to 'Back', vinyls_path %>

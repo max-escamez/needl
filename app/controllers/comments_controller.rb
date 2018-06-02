@@ -1,21 +1,32 @@
 class CommentsController < ApplicationController
 
-  #http_basic_authenticate_with name: "dhh", password: "secret", only: :destroy
+  before_action :require_login, only: [:destroy, :create]
 
   def create
     @vinyl = Vinyl.find(params[:vinyl_id])
     @comment = @vinyl.comments.create(comment_params)
-    redirect_to vinyl_path(@vinyl)
+    @comment.user_id = current_user.id
+    if @comment.save
+      redirect_to vinyl_path(@vinyl)
+    end
   end
 
   def destroy
     @vinyl = Vinyl.find(params[:vinyl_id])
-    @vinyl.comments.find(params[:id]).destroy
+    current_user.comments.find(params[:id]).destroy
     redirect_to vinyl_path(@vinyl)
   end
 
   private
   def comment_params
-    params.require(:comment).permit(:commenter, :body)
+    params.require(:comment).permit(:body)
+  end
+
+  private
+  def require_login
+    unless current_user
+      flash[:error] = "You must be logged in to comment"
+      redirect_to "/auth/google_oauth2" # halts request cycle
+    end
   end
 end
