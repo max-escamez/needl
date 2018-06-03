@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Needl</title>
+    <%= favicon_link_tag 'NeedlLogo.png' %>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -29,7 +30,7 @@
         All the vinyls we need
       </span>
 
-      <div class="ml-auto">
+      <div class="login ml-auto">
         <% if current_user %>
           Signed in as
           <div class="btn-group btn-profile">
@@ -39,11 +40,10 @@
             </button>
             <div class="dropdown-menu">
               <a class="dropdown-item" href="#">Profile</a>
+              <div class="dropdown-divider"></div>
               <%= link_to "Sign out", signout_path, id: "sign_out", class:"dropdown-item" %>
             </div>
           </div>
-
-
 
         <% else %>
           <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", class:"btn-login btn btn-outline-light"%>

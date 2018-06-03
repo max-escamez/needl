@@ -1,6 +1,6 @@
 <div class="show-top">
 
-  <div class="show-cover">
+  <div class="show-cover ">
     <% if @vinyl.image.attached? %>
       <%= image_tag @vinyl.image.variant(resize: "500x500"), class: "img-fluid shadow rounded" %>
     <% end %>
@@ -9,6 +9,14 @@
   <div class="show-info">
     Posted by : <%= @vinyl.user.name %>
 
+    <div class="control-panel">
+      <% if @vinyl.user == current_user %>
+        <%= link_to 'Edit', edit_vinyl_path(@vinyl), class: " btn-sm btn-control" %>
+        <%= link_to 'Delete', vinyl_path(@vinyl),
+                    method: :delete,
+                    data: {confirm: 'Are you sure?'}, class: " btn-sm btn-control" %>
+      <% end %>
+    </div>
     <h1><%= @vinyl.album_title %></h1>
     <p>
       <%= @vinyl.artist %>
@@ -16,30 +24,21 @@
     <p>
       <%= @vinyl.description %>
     </p>
-
-    <div class="control-panel" >
-      <%= link_to 'Edit', edit_vinyl_path(@vinyl), class: "btn btn-control" %>
-      <%= link_to 'Delete', vinyl_path(@vinyl),
-                      method: :delete,
-                      data: {confirm: 'Are you sure?'} , class: "btn btn-control"%>
-    </div>
   </div>
 
 </div>
 
-<div class="show-comments">
-  <h2>Comments</h2>
-  <%= render @vinyl.comments %>
 
-  <h2>Add a comment:</h2>
-  <%= render 'comments/form' %>
+<div class="comments-section">
+
+  <div class="comments-show">
+    <h3>Comments</h3>
+    <%= render @vinyl.comments %>
+  </div>
+
+  <div class="comments-submit">
+    <h5>Add a comment:</h5>
+    <%= render 'comments/form' %>
+  </div>
+
 </div>
-
-<% if @vinyl.user == current_user %>
-  <td><%= link_to 'Delete', vinyl_path(@vinyl),
-                method: :delete,
-                data: {confirm: 'Are you sure?'} %></td> |
-  <%= link_to 'Edit', edit_vinyl_path(@vinyl) %> |
-<% end %>
-
-<%= link_to 'Back', vinyls_path %>

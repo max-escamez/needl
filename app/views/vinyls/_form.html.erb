@@ -14,41 +14,47 @@
     </div>
   <% end %>
 
-  <div class="form">
+  <div class="submit">
+    <div class="form">
 
-    <div class="form-fill" >
-      <p>
-        <%= form.label "Album" %><br>
-        <%= form.text_field :album_title, required: true ,class:"form-control" %>
-      </p>
+      <div class="form-fill" >
+        <p>
+          <%= form.label "Album" %><br>
+          <%= form.text_field :album_title, required: true ,class:"form-control" %>
+        </p>
 
-      <p>
-        <%= form.label :artist %><br>
-        <%= form.text_field :artist, required: true ,class:"form-control"%>
-      </p>
+        <p>
+          <%= form.label :artist %><br>
+          <%= form.text_field :artist, required: true ,class:"form-control"%>
+        </p>
 
-      <p>
-        <%= form.label :description %><br>
-        <%= form.text_area :description , class:"form-control"%>
-      </p>
+        <p>
+          <%= form.label :description %><br>
+          <%= form.text_area :description , class:"form-control"%>
+        </p>
 
-      <p>
-        <%= form.label :image, 'Cover' %><br>
-        <%= form.file_field :image, direct_upload: true, accept: 'image/png,image/gif,image/jpeg', required: true, id:"form-cover" %>
-      </p>
+        <p>
+          <%= form.label :image, 'Cover' %><br>
+          <%= form.file_field :image, direct_upload: true, accept: 'image/png,image/gif,image/jpeg', required: true, id:"form-cover" %>
+        </p>
 
-      <% if @vinyl.image.attached? %>
-        <%= image_tag @vinyl.image%>
-      <% end %>
+        <% if @vinyl.image.attached? %>
+          <%= image_tag @vinyl.image%>
+        <% end %>
+      </div>
+
+
+      <div class="form-preview" >
+        Preview
+        <div class="rounded" id="form-preview">
+
+        </div>
+      </div>
+
     </div>
 
-    <div class="form-preview rounded" id="form-preview">
-    </div>
+    <%= form.submit "Submit", class:"btn-lg btn-control btn-submit" %>
 
-  </div>
-
-  <div  class="center" >
-    <%= form.submit "Submit", class:"btn-lg submit-btn" %>
   </div>
 
 <% end %>

@@ -1,16 +1,23 @@
-<p>
-  By: <%= comment.user.name %>
-  <%= image_tag(comment.user.image, size: "45") %>
-</p>
+  <div class="comment rounded">
+    <div class="comment-left">
+      <%= image_tag(comment.user.image, size: "45", class: "rounded") %>
+    </div>
+    <div class="comment-right">
+      <strong><%= comment.user.name %></strong>
+      <div class="comment-body">
+        <%= comment.body %>
+      </div>
+    </div>
 
-<p>
-  <%= comment.body %>
-</p>
 
-<p>
-  <% if comment.user == current_user %>
-    <%= link_to 'Delete', [comment.vinyl, comment],
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
-  <% end %>
-</p>
+    <% if comment.user == current_user %>
+      <div class="comment-control">
+        <%= link_to [comment.vinyl, comment],
+                    method: :delete,
+                    data: {confirm: 'Are you sure?'} do %>
+          <i class="material-icons md-dark" data-toggle="tooltip" data-placement="left" title="Delete Comment">delete_forever</i>
+        <% end %>
+      </div>
+    <% end %>
+
+  </div>

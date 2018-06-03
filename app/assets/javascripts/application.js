@@ -18,5 +18,4 @@
 //= require jquery_ujs
 //= require popper
 //= require bootstrap
-//= require materialize
 //= require_tree .

@@ -10,11 +10,11 @@
  * files in this directory. Styles in this file should be added after the last require_* statement.
  * It is generally better to create a new file per style scope.
  *
+ *= require material_icons
  *= require_self
  *= require_tree .
  */
 @import "bootstrap";
-@import "materialize";
 @import "comments.scss";
 @import "vinyls.scss";
 @import "welcome.scss";
@@ -29,6 +29,9 @@ body{
     margin-bottom: 20px;
 }
 
+.icon-test{
+    color: rgba(255, 255, 255, 1);
+}
 .navbar-logo{
     width: 35px;
     height: 35px;
@@ -37,12 +40,16 @@ body{
 
 a.navbar-brand {
     font-weight: lighter;
-    font-size: 350%;
+    font-size: xx-large;
     color: white !important;
 }
 
 .my-navbar-text{
     font-weight: lighter;
+}
+
+.login{
+    color: white;
 }
 
 .btn-login{
