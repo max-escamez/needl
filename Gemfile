@@ -65,7 +65,7 @@ gem 'attach', '~> 1.0.1'
 
 gem 'image_processing'
 
-gem 'bootstrap'
+gem 'bootstrap', '~> 4.1.1'
 
 gem 'jquery-rails'
 
@@ -75,4 +75,4 @@ gem 'omniauth-google-oauth2', '~> 0.2.1'
 
 gem 'material_icons'
 
-gem 'sass'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
