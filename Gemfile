@@ -74,3 +74,5 @@ gem 'jquery-turbolinks'
 gem 'omniauth-google-oauth2', '~> 0.2.1'
 
 gem 'material_icons'
+
+gem 'sass'
