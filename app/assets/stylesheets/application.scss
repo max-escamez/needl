@@ -1,0 +1,62 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, or any plugin's
+ * vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any other CSS/SCSS
+ * files in this directory. Styles in this file should be added after the last require_* statement.
+ * It is generally better to create a new file per style scope.
+ *
+ *= require material_icons
+ */
+@import "bootstrap";
+@import "comments.scss";
+@import "vinyls.scss";
+@import "welcome.scss";
+
+body{
+    background-color: #CFD8DC !important;
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.navbar {
+    background-color: #5F7C8B;
+    margin-bottom: 20px;
+}
+
+.icon-test{
+    color: rgba(255, 255, 255, 1);
+}
+.navbar-logo{
+    width: 35px;
+    height: 35px;
+    margin-right: 10px;
+}
+
+a.navbar-brand {
+    font-weight: lighter;
+    font-size: xx-large;
+    color: white !important;
+}
+
+.my-navbar-text{
+    font-weight: lighter;
+}
+
+.login{
+    color: white;
+}
+
+.btn-login{
+    border-radius: 24px;
+}
+
+.btn-profile{
+    margin: 0 15px 0 10px;
+}
+
+
+
