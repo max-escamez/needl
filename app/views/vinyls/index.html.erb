@@ -1,9 +1,3 @@
-<%= link_to new_vinyl_path do %>
-  <div class="btn-floating">
-      <i class="material-icons">add</i>
-  </div>
-<% end %>
-
 <div class="vinyls" align="center">
   <% @vinyls.each do |vinyl| %>
     <%= link_to vinyl_path(vinyl) do %>
@@ -19,3 +13,9 @@
     <% end %>
   <% end %>
 </div>
+
+<%= link_to new_vinyl_path do %>
+  <div class="btn-floating">
+    <i class="material-icons">add</i>
+  </div>
+<% end %>

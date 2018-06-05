@@ -4,30 +4,54 @@
 $primary-color: #5F7C8B;
 $accent-color: #577280;
 
-.comment{
-  padding: 5px;
+.comment-replies{
+  display: flex;
+  flex-direction: column;
+  padding: 0.6rem;
   margin-bottom: 10px;
   box-shadow: 0 2px 3px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease-in-out;
+
+  .delete{
+  }
 
   &:hover{
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   }
 
-
-  .comment-left{
-    display: inline-block;
-    vertical-align: top;
+  &:hover.delete{
+    display: block;
   }
 
-  .comment-right{
-    display: inline-block;
-    .comment-body{
-      margin-left: 10px;
+  .comment{
+    display: flex;
+    justify-content: space-between;
+    .comment-group-left{
+      display: flex;
+      justify-content: flex-start;
+      .comment-left{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        .btn-reply{
+          margin-top: 0.5rem;
+          font-size: x-small;
+        }
+      }
+      .comment-right{
+        margin-left: 0.6rem;
+        .comment-body{
+          margin-left: 0.6rem;
+        }
+      }
     }
   }
 
-  .comment-control{
-    float: right;
+  .display-replies{
+    .form-reply{
+      padding-top: 0.6rem;
+    }
   }
+
 }
+
