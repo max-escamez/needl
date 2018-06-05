@@ -28,17 +28,12 @@
 
 </div>
 
-
 <div class="comments-section">
-
-  <div class="comments-show">
-    <h3>Comments</h3>
-    <%= render @vinyl.comments %>
-  </div>
-
   <div class="comments-submit">
-    <h5>Add a comment:</h5>
-    <%= render 'comments/form' %>
-  </div>
+    <h2>Comments</h2>
+    <%= comments_tree_for @comments %>
 
+    <h2>Add a comment:</h2>
+    <%= render 'comments/form', comment:nil%>
+  </div>
 </div>

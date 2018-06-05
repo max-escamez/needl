@@ -2,10 +2,22 @@ class CommentsController < ApplicationController
 
   before_action :require_login, only: [:destroy, :create]
 
+  def new
+    @comment = Comment.new(parent_id: params[:parent_id])
+  end
+
   def create
     @vinyl = Vinyl.find(params[:vinyl_id])
-    @comment = @vinyl.comments.create(comment_params)
+
+    if params[:comment][:parent_id].to_i > 0
+      parent = Comment.find_by_id(params[:comment].delete(:parent_id))
+      @comment = parent.children.build(comment_params)
+    else
+      @comment = Comment.new(comment_params)
+    end
+    @comment.vinyl_id = @vinyl.id
     @comment.user_id = current_user.id
+
     if @comment.save
       redirect_to vinyl_path(@vinyl)
     end

@@ -8,6 +8,7 @@ class VinylsController < ApplicationController
 
   def show
     @vinyl = Vinyl.find(params[:id])
+    @comments = @vinyl.comments.hash_tree(limit_depth: 2)
   end
 
   def new

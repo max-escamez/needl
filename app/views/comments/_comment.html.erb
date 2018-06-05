@@ -6,6 +6,10 @@
       <strong><%= comment.user.name %></strong>
       <div class="comment-body">
         <%= comment.body %>
+        <a onclick="document.getElementById('reply_form').style.display = 'block'">Reply</a>
+        <div id="reply_form" style="display:none">
+          <%= render '/comments/form', comment: comment %>
+        </div>
       </div>
     </div>
 
@@ -21,3 +25,4 @@
     <% end %>
 
   </div>
+

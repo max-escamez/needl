@@ -1,8 +1,13 @@
 <%= form_with(model: [ @vinyl, @vinyl.comments.build ], local: true) do |form| %>
   <p>
-    <%= form.text_area :body , class:"form-control" , required:true%>
+    <% unless comment.nil? %>
+      <%= form.hidden_field :parent_id, value: comment.id %>
+    <%end%>
+    <%= form.text_field :body , class:"form-control"%>
   </p>
   <p>
     <%= form.submit "Comment", class:"btn btn-control" %>
   </p>
 <% end %>
+
+
