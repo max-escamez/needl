@@ -30,10 +30,12 @@
 
 <div class="comments-section">
   <div class="comments-submit">
-    <h2>Comments</h2>
-    <%= comments_tree_for @comments %>
-
     <h2>Add a comment:</h2>
     <%= render 'comments/form', comment:nil%>
+
+    <h2>Comments</h2>
+    <%= comments_tree_for @comments %>
   </div>
 </div>
+
+
