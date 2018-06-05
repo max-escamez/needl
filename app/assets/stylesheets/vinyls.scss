@@ -22,43 +22,48 @@ $accent-color: #577280;
   }
 }
 
-.show-top{
-  width: 100%;
-  padding: 5% 15% 0 15%;
-  overflow: auto;
+.vinyl-details-container{
+  padding: 2rem;
 
-  .show-cover{
-    display: inline;
-    width: 45%;
-    float: left;
-  }
+  .show-top{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 0 auto;
+    max-width: 1024px;
 
-  .show-info{
-    display: inline;
-    float: right;
-    width: 45%;
+    .show-cover{
 
-    .control-panel{
-      display: inline-block;
-      text-align: right;
-      float: right;
+    }
 
-      .btn-edit{
-        width: 70px;
-        height: 25px;
-        font-size: small;
-        .text-edit{
-          vertical-align: middle;
-        }
-        .icon-edit{
-          margin-right: 5px;
-          vertical-align: middle;
-        }
+    .show-info{
+      .btn-need{
+
       }
 
+      .control-panel{
+        margin-left: 4rem;
+        display: inline-block;
+        text-align: right;
+        float: right;
+
+        .btn-edit{
+          width: 70px;
+          height: 25px;
+          font-size: small;
+          .text-edit{
+            vertical-align: middle;
+          }
+          .icon-edit{
+            margin-right: 5px;
+            vertical-align: middle;
+          }
+        }
+      }
     }
   }
 }
+
 
 .comments-section{
   margin: 80px 50px 50px 50px;
