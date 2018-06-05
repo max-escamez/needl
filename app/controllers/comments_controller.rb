@@ -2,10 +2,6 @@ class CommentsController < ApplicationController
 
   before_action :require_login, only: [:destroy, :create]
 
-  def new
-    @comment = Comment.new(parent_id: params[:parent_id])
-  end
-
   def create
     @vinyl = Vinyl.find(params[:vinyl_id])
 

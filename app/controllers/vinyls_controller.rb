@@ -1,6 +1,6 @@
 class VinylsController < ApplicationController
 
-  before_action :require_login, only: [:new, :create, :edit, :update, :destroy]
+  before_action :require_login, only: [:new, :create, :edit, :update, :destroy, :upvote, :downvote]
 
   def index
     @vinyls = Vinyl.all
@@ -40,6 +40,18 @@ class VinylsController < ApplicationController
   def destroy
     current_user.vinyls.find(params[:id]).destroy
     redirect_to vinyls_path
+  end
+
+  def upvote
+    @vinyl = Vinyl.find(params[:id])
+    @vinyl.upvote_by current_user
+    redirect_to vinyl_path
+  end
+
+  def downvote
+    @vinyl = Vinyl.find(params[:id])
+    @vinyl.downvote_by current_user
+    redirect_to vinyl_path
   end
 
   private

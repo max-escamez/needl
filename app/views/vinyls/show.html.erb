@@ -28,11 +28,18 @@
       </div>
 
       <div class="info-extended" >
-        <button type="button" class="btn btn-lg btn-block btn-success btn-need" >NEED</button>
+        <%= link_to need_vinyl_path(@vinyl), class:"btn btn-lg btn-block btn-success btn-need", method: :put do %>
+          NEED
+        <% end %>
+
+        <%= link_to nevermind_vinyl_path(@vinyl), class:"btn btn-lg btn-block btn-warning btn-need",method: :put do %>
+          NEVERMIND
+        <% end %>
+
+        <%= @vinyl.get_upvotes.size %> people need this vinyl
       </div>
 
     </div>
-
   </div>
 </div>
 

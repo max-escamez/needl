@@ -71,11 +71,14 @@ gem 'jquery-rails'
 
 gem 'jquery-turbolinks'
 
-gem 'omniauth-google-oauth2', '~> 0.2.1'
-
 gem 'material_icons'
 
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 gem 'closure_tree'
+
+gem 'acts_as_votable', '~> 0.11.1'
+
+gem 'omniauth-google-oauth2', '~> 0.2.1'
+
 
