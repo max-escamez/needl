@@ -31,3 +31,4 @@
 
 # Jetbrains stuff
 .idea/*
+.env

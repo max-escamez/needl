@@ -1,6 +1,6 @@
 <div class="show-top">
 
-  <div class="show-cover">
+  <div class="show-cover ">
     <% if @vinyl.image.attached? %>
       <%= image_tag @vinyl.image.variant(resize: "500x500"), class: "img-fluid shadow rounded" %>
     <% end %>
@@ -9,6 +9,14 @@
   <div class="show-info">
     Posted by : <%= @vinyl.user.name %>
 
+    <div class="control-panel">
+      <% if @vinyl.user == current_user %>
+        <%= link_to 'Edit', edit_vinyl_path(@vinyl), class: " btn-sm btn-control" %>
+        <%= link_to 'Delete', vinyl_path(@vinyl),
+                    method: :delete,
+                    data: {confirm: 'Are you sure?'}, class: " btn-sm btn-control" %>
+      <% end %>
+    </div>
     <h1><%= @vinyl.album_title %></h1>
     <p>
       <%= @vinyl.artist %>
@@ -20,22 +28,14 @@
 
 </div>
 
-<div class="show-comments">
+<div class="comments-section">
+  <div class="comments-submit">
+    <h2>Add a comment:</h2>
+    <%= render 'comments/form', comment:nil%>
 
-  <h2>Add a comment:</h2>
-  <%= render 'comments/form', comment:nil%>
-
-  <h2>Comments</h2>
-  <%= comments_tree_for @comments %>
-
-
+    <h2>Comments</h2>
+    <%= comments_tree_for @comments %>
+  </div>
 </div>
 
-<% if @vinyl.user == current_user %>
-  <td><%= link_to 'Delete', vinyl_path(@vinyl),
-                method: :delete,
-                data: {confirm: 'Are you sure?'} %></td> |
-  <%= link_to 'Edit', edit_vinyl_path(@vinyl) %> |
-<% end %>
 
-<%= link_to 'Back', vinyls_path %>

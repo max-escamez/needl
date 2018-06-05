@@ -2,9 +2,24 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 $primary-color: #5F7C8B;
+$accent-color: #577280;
 
 .btn-floating{
-  background: $primary-color !important;
+  position:fixed;
+  width:60px;
+  height:60px;
+  bottom:40px;
+  right:40px;
+  background: $primary-color;
+  color:#FFF;
+  border-radius:50px;
+  text-align:center;
+  box-shadow: 2px 2px 3px #999;
+  padding-top: 18px;
+
+  &:hover{
+    background: $accent-color;
+  }
 }
 
 .show-top{
@@ -22,35 +37,60 @@ $primary-color: #5F7C8B;
     display: inline;
     float: right;
     width: 45%;
+
+    .control-panel{
+      display: inline-block;
+      text-align: right;
+      float: right;
+
+      .btn-edit{
+        width: 70px;
+        height: 25px;
+        font-size: small;
+        .text-edit{
+          vertical-align: middle;
+        }
+        .icon-edit{
+          margin-right: 5px;
+          vertical-align: middle;
+        }
+      }
+
+    }
   }
 }
 
-.show-comments{
-  margin: 50px;
+.comments-section{
+  margin: 80px 50px 50px 50px;
   display: block;
-}
 
-.form{
-  width: 100%;
-  padding: 3% 8% 5% 8%;
-  overflow: auto;
-
-  .form-fill{
-    width: 45%;
-    float: left;
-  }
-
-  .form-preview{
-    width: 45%;
-    float: right;
+  .comments-submit{
+    margin-top: 20px;
   }
 }
 
+.submit {
+  .form {
+    width: 100%;
+    padding: 3% 8% 5% 8%;
+    overflow: auto;
 
+    .form-fill {
+      width: 45%;
+      float: left;
+    }
 
-.submit-btn{
-  background: $primary-color;
+    .form-preview {
+      width: 45%;
+      float: right;
+    }
+  }
+  .btn-submit{
+    display: block;
+    margin: 0 auto;
+  }
 }
+
 
 .vinyls{
   display: grid;
@@ -100,5 +140,53 @@ $primary-color: #5F7C8B;
       opacity: 1;
     }
   }
+}
+
+.btn-control {
+  color: #ffffff;
+  background-color: #5F7C8B;
+  border-color: #5F7C8B;
+  text-decoration: none !important;
+  border-radius: 25px !important;
+}
+
+.btn-control:hover,
+.btn-control:focus,
+.btn-control:active,
+.btn-control.active,
+.open .dropdown-toggle.btn-control {
+  color: #ffffff;
+  background-color: $accent-color;
+  border-color: $primary-color;
+}
+
+.btn-control:active,
+.btn-control.active,
+.open .dropdown-toggle.btn-control {
+  background-image: none;
+}
+
+.btn-control.disabled,
+.btn-control[disabled],
+fieldset[disabled] .btn-control,
+.btn-control.disabled:hover,
+.btn-control[disabled]:hover,
+fieldset[disabled] .btn-control:hover,
+.btn-control.disabled:focus,
+.btn-control[disabled]:focus,
+fieldset[disabled] .btn-control:focus,
+.btn-control.disabled:active,
+.btn-control[disabled]:active,
+fieldset[disabled] .btn-control:active,
+.btn-control.disabled.active,
+.btn-control[disabled].active,
+fieldset[disabled] .btn-control.active {
+  background-color: #5F7C8B;
+  border-color: #5F7C8B;
+}
+
+.btn-control .badge {
+  color: #5F7C8B;
+  background-color: #ffffff;
 }
 

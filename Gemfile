@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2.0'
 # Use sqlite3 as the database for Active Record
 gem 'sqlite3'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
@@ -65,7 +65,7 @@ gem 'attach', '~> 1.0.1'
 
 gem 'image_processing'
 
-gem 'bootstrap'
+gem 'bootstrap', '~> 4.1.1'
 
 gem 'jquery-rails'
 
@@ -73,7 +73,9 @@ gem 'jquery-turbolinks'
 
 gem 'omniauth-google-oauth2', '~> 0.2.1'
 
-gem 'materialize-sass', '~> 1.0.0.rc1'
+gem 'material_icons'
+
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 
 gem 'closure_tree'
 

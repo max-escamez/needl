@@ -1,23 +1,30 @@
-<p>
-  <% if comment.persisted? %>
-    By: <%= comment.user.name %>
-    <%= image_tag(comment.user.image, size: "45") %>
-  <% end %>
-</p>
+<% if comment.persisted? %>
+  <div class="comment rounded">
+    <div class="comment-left">
+      <%= image_tag(comment.user.image, size: "45", class: "rounded") %>
+    </div>
+    <div class="comment-right">
+      <strong><%= comment.user.name %></strong>
+      <div class="comment-body">
+        <%= comment.body %>
+        <%#link_to "Reply",... may be done%>
+        <!--<a onclick="document.getElementById('reply_form').style.display = 'block'">Reply</a>-->
+        <!--<div id="reply_form" style="display:none">-->
+          <%= render '/comments/form', comment: comment %>
+        <!--</div>-->
+      </div>
+    </div>
+<% end %>
 
-<p>
-  <%= comment.body %>
-</p>
-<%# link_to "Reply","#", id: "reply_button" %>
-<!--<a onclick="document.getElementById('reply_form').style.display = 'block'">Reply</a>-->
-<!--<div id="reply_form" style="display:none">-->
-  <%= render '/comments/form', comment: comment %>
-<!--</div>-->
+    <% if comment.user == current_user %>
+      <div class="comment-control">
+        <%= link_to [comment.vinyl, comment],
+                    method: :delete,
+                    data: {confirm: 'Are you sure?'} do %>
+          <i class="material-icons md-dark" data-toggle="tooltip" data-placement="left" title="Delete Comment">delete_forever</i>
+        <% end %>
+      </div>
+    <% end %>
 
-<p>
-  <% if comment.user == current_user %>
-    <%= link_to 'Delete', [comment.vinyl, comment],
-              method: :delete,
-              data: { confirm: 'Are you sure?' } %>
-  <% end %>
-</p>
+  </div>
+
