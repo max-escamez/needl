@@ -19,7 +19,7 @@ The home page of needl is where you'll access all of the vinyls that were submit
 <br />
 You can directly access the album and artist names of the vinyl without actually having to click on it. Just hover your mouse over the album covers.<br />
 <br />
-![Alt Text](.gif)
+![Alt Text](https://github.com/maxime-escamez/needl/blob/master/images/animation.gif)
 <br />
 <br />
 ```diff
