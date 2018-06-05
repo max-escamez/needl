@@ -61,4 +61,4 @@ You can also comment on this vinyl right below.
 ## Profile Page
 ```diff
 -This is completely WOP, but basically you will be able to access the vinyls you submitted and the ones you backed.
-```diff
+```

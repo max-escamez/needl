@@ -1,12 +1,20 @@
 <%= form_with(model: [ @vinyl, @vinyl.comments.build ], local: true) do |form| %>
   <p>
     <% unless comment.nil? %>
-      <%= form.hidden_field :parent_id, value: comment.id %>
-    <%end%>
+      <% if comment.parent_id.nil? %>
+        <%= form.hidden_field :parent_id, value: comment.id %>
+      <%else%>
+        <%= form.hidden_field :parent_id, value: comment.parent_id %>
+      <%end%>
+  <%end%>
     <%= form.text_field :body , class:"form-control"%>
   </p>
   <p>
-    <%= form.submit "Comment", class:"btn btn-control" %>
+    <% if comment.nil? %>
+      <%= form.submit "Comment", class:"btn btn-control" %>
+    <% else %>
+      <%= form.submit "Reply", class:"btn btn-control" %>
+    <%end%>
   </p>
 <% end %>
 

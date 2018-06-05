@@ -24,6 +24,18 @@
     <p>
       <%= @vinyl.description %>
     </p>
+
+    <%= link_to need_vinyl_path(@vinyl), method: :put do %>
+      NEED
+    <% end %>
+
+    <%= link_to nevermind_vinyl_path(@vinyl), method: :put do %>
+      NEVERMIND
+    <% end %>
+
+    <%= @vinyl.get_upvotes.size %> people need this vinyl
+
+
   </div>
 
 </div>
