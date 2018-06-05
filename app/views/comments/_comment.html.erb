@@ -1,11 +1,16 @@
 <p>
-  By: <%= comment.user.name %>
-  <%= image_tag(comment.user.image, size: "45") %>
+    By: <%= comment.user.name %>
+    <%= image_tag(comment.user.image, size: "45") %>
 </p>
 
 <p>
   <%= comment.body %>
 </p>
+<%# link_to "Reply","#", id: "reply_button" %>
+<a onclick="document.getElementById('reply_form').style.display = 'block'">Reply</a>
+<div id="reply_form" style="display:none">
+  <%= render '/comments/form', comment: comment %>
+</div>
 
 <p>
   <% if comment.user == current_user %>
