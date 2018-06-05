@@ -10,11 +10,10 @@
       <div class="vinyl shadow rounded">
         <% if vinyl.image.attached? %>
           <%= image_tag(vinyl.image.variant(resize: "300x300"), class: "img-fluid cover") %>
-      <% end %>
+        <% end %>
         <div class="vinyl-overlay">
           <div class="album-title-overlay text-capitalize text-truncate"><%= vinyl.album_title %></div>
           <div class="artist-overlay text-capitalize text-truncate"><%= vinyl.artist %></div>
-
         </div>
       </div>
     <% end %>
