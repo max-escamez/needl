@@ -22,10 +22,12 @@ class VinylsController < ApplicationController
   def show
     @vinyl = Vinyl.find(params[:id])
     @comments = @vinyl.comments.hash_tree(limit_depth: 2)
+    @wrapper = Discogs::Wrapper.new("needl", user_token: "ZjgMvwfSVnQhbsgXnhulvQvBHmqBbtrWtrARWUjD")
   end
 
   def new
     @vinyl = Vinyl.new
+
   end
 
   def edit
