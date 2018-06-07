@@ -15,12 +15,12 @@
           </h5>
         </div>
         <div class="info-user">
-          <%= link_to user_path(@vinyl.user) do %>
-            <div class="user-profile">
-              <a class="username"> <%= @vinyl.user.name %></a>
+          <div class="user-profile">
+            <%= link_to @vinyl.user.name , user_path(@vinyl.user), class: 'username' %>
+            <%= link_to user_path(@vinyl.user) do %>
               <%= image_tag @vinyl.user.image, size: "45", class: "rounded" %>
-            </div>
-          <% end %>
+            <% end %>
+          </div>
           <div class="control-panel">
             <% if @vinyl.user == current_user %>
               <%= link_to 'Edit', edit_vinyl_path(@vinyl), class: " btn-sm btn-control btn-edit" %>
