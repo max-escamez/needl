@@ -46,6 +46,9 @@ $accent-color: #577280;
       }
       .comment-right{
         margin-left: 0.6rem;
+        .username{
+          color: black !important;
+        }
         .comment-body{
           margin-left: 0.6rem;
         }
