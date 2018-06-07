@@ -7,7 +7,7 @@
         <%= form.hidden_field :parent_id, value: comment.parent_id %>
       <%end%>
   <%end%>
-    <%= form.text_field :body , class:"form-control"%>
+    <%= form.text_field :body , required: true, class:"form-control"%>
   </p>
   <p>
     <% if comment.nil? %>

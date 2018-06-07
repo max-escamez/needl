@@ -13,14 +13,15 @@ $accent-color: #577280;
   transition: box-shadow 0.3s ease-in-out;
 
   .delete{
+    visibility: hidden;
   }
 
   &:hover{
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
   }
 
-  &:hover.delete{
-    display: block;
+  &:hover .delete{
+    visibility: visible;
   }
 
   .comment{
@@ -34,8 +35,13 @@ $accent-color: #577280;
         flex-direction: column;
         justify-content: space-between;
         .btn-reply{
-          margin-top: 0.5rem;
-          font-size: x-small;
+          padding-top:0.6rem;
+          margin: 0 auto;
+          font-size: small;
+          cursor: pointer !important;
+          &:hover{
+            font-weight: bold;
+          }
         }
       }
       .comment-right{

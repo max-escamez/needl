@@ -21,3 +21,10 @@ $(document).on 'turbolinks:load', ->
     reader.readAsDataURL image
     console.log files
     return
+
+$(document).ready ->
+  $('.btn-need').click ->
+    $('.btn-nevermind').toggle()
+
+    return
+  return

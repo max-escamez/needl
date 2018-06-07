@@ -1,5 +1,5 @@
 <div class="vinyl-details-container">
-  <div class="show-top">
+  <div class="show">
     <div class="show-cover ">
       <% if @vinyl.image.attached? %>
         <%= image_tag @vinyl.image.variant(resize: "500x500"), class: "img-fluid shadow rounded" %>
@@ -7,38 +7,47 @@
     </div>
 
     <div class="show-info">
-      Posted by : <%= @vinyl.user.name %>
-
-      <div class="control-panel">
-        <% if @vinyl.user == current_user %>
-          <%= link_to 'Edit', edit_vinyl_path(@vinyl), class: " btn-sm btn-control" %>
-          <%= link_to 'Delete', vinyl_path(@vinyl),
-                      method: :delete,
-                      data: {confirm: 'Are you sure?'}, class: " btn-sm btn-control" %>
-        <% end %>
+      <div class="info-top">
+        <div class="info-primary">
+          <h1><%= @vinyl.album_title %></h1>
+          <h5>
+            <%= @vinyl.artist %>
+          </h5>
+        </div>
+        <div class="info-user">
+          <div class="user-profile">
+            <a class="username"> <%= @vinyl.user.name %></a>
+            <%= image_tag @vinyl.user.image, size: "45", class: "rounded" %>
+          </div>
+          <div class="control-panel">
+            <% if @vinyl.user == current_user %>
+              <%= link_to 'Edit', edit_vinyl_path(@vinyl), class: " btn-sm btn-control btn-edit" %>
+              <%= link_to 'Delete', vinyl_path(@vinyl),
+                          method: :delete,
+                          data: {confirm: 'Are you sure?'}, class: " btn-sm btn-control btn-delete" %>
+            <% end %>
+          </div>
+        </div>
       </div>
-      <div class="info-primary" >
-        <h1><%= @vinyl.album_title %></h1>
-        <p>
-          <%= @vinyl.artist %>
-        </p>
+
+      <div class="info-body">
         <p>
           <%= @vinyl.description %>
         </p>
       </div>
 
-      <div class="info-extended" >
-        <%= link_to need_vinyl_path(@vinyl), class:"btn btn-lg btn-block btn-success btn-need", method: :put do %>
-          NEED
-        <% end %>
+      <div class="info-bot">
+        <div class="info-extended">
+          <%= link_to need_vinyl_path(@vinyl), class: "btn btn-lg btn-block btn-success btn-need", method: :put do %>
+            NEED
+          <% end %>
 
-        <%= link_to nevermind_vinyl_path(@vinyl), class:"btn btn-lg btn-block btn-warning btn-need",method: :put do %>
-          NEVERMIND
-        <% end %>
-
-        <%= @vinyl.get_upvotes.size %> people need this vinyl
+          <%= link_to nevermind_vinyl_path(@vinyl), class: "btn btn-lg btn-block btn-warning btn-nevermind", method: :put do %>
+            NEVERMIND
+          <% end %>
+        </div>
+        <div class="backers"><%= @vinyl.get_upvotes.size %> people need this vinyl</div>
       </div>
-
     </div>
   </div>
 </div>
@@ -47,7 +56,7 @@
 <div class="comments-section">
   <div class="comments-submit">
     <h2>Add a comment:</h2>
-    <%= render 'comments/form', comment:nil%>
+    <%= render 'comments/form', comment: nil %>
 
     <h2>Comments</h2>
     <%= comments_tree_for @comments %>

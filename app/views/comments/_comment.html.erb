@@ -4,7 +4,7 @@
       <div class="comment-group-left">
         <div class="comment-left">
           <%= image_tag(comment.user.image, size: "45", class: "rounded") %>
-          <button type="button" class="btn btn-sm btn-control btn-reply" id="btn-reply_<%=comment.id %>">Reply</button>
+          <a class="btn-reply" id="btn-reply_<%=comment.id %>">Reply</a>
         </div>
         <div class="comment-right">
           <strong><%= comment.user.name %></strong>
