@@ -15,14 +15,14 @@ class CommentsController < ApplicationController
     @comment.user_id = current_user.id
 
     if @comment.save
-      redirect_to vinyl_path(@vinyl)
+      redirect_to @vinyl
     end
   end
 
   def destroy
     @vinyl = Vinyl.find(params[:vinyl_id])
     current_user.comments.find(params[:id]).destroy
-    redirect_to vinyl_path(@vinyl)
+    redirect_to @vinyl
   end
 
   private

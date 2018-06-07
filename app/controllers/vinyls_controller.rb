@@ -3,7 +3,20 @@ class VinylsController < ApplicationController
   before_action :require_login, only: [:new, :create, :edit, :update, :destroy, :upvote, :downvote]
 
   def index
-    @vinyls = Vinyl.all
+    #@vinyls = Vinyl.all
+    @vinyls = Vinyl.where(nil)
+    if params[:filter] == "vote"
+      @vinyls = @vinyls.sort_by_votes
+    elsif params[:filter] == "date"
+      @vinyls = @vinyls.sort_by_dates
+    elsif params[:filter] == "search"
+      @vinyls = @vinyls.artist_starts_with("Lee")
+      @vinyls = @vinyls.album_starts_with("Twist")
+    elsif params[:filter] == "submissions"
+      @vinyls = @vinyls.user_submissions(params[:user_id])
+    elsif params[:filter] == "following"
+      @vinyls = @vinyls.user_following(params[:user_id])
+    end
   end
 
   def show
@@ -21,7 +34,7 @@ class VinylsController < ApplicationController
 
   def create
     @vinyl = current_user.vinyls.new(vinyl_params)
-
+    @vinyl.votes=0
     if @vinyl.save
       redirect_to @vinyl
     else
@@ -45,13 +58,15 @@ class VinylsController < ApplicationController
   def upvote
     @vinyl = Vinyl.find(params[:id])
     @vinyl.upvote_by current_user
-    redirect_to vinyl_path
+    @vinyl.update(votes: @vinyl.get_upvotes.size)
+    redirect_to @vinyl
   end
 
   def downvote
     @vinyl = Vinyl.find(params[:id])
     @vinyl.downvote_by current_user
-    redirect_to vinyl_path
+    @vinyl.update(votes: @vinyl.get_upvotes.size)
+    redirect_to @vinyl
   end
 
   private

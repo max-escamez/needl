@@ -12,11 +12,13 @@ Rails.application.routes.draw do
   resources :vinyls do
     resources :comments
   end
+
   resources :vinyls do
     member do
       put "need", to: "vinyls#upvote"
       put "nevermind", to: "vinyls#downvote"
     end
   end
+  resources :users, only: [:show]
   root to: 'vinyls#index' # tells Rails to map requests to the root of the application to the vinyls controller's index action
 end
