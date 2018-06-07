@@ -30,11 +30,16 @@
         All the records we need
       </span>
 
+      <%= link_to 'Search', vinyls_index_path(filter: "search") %>
+
       <div class="login ml-auto">
         <% if current_user %>
           Signed in as
           <div class="btn-group btn-profile">
-            <button type="button" class="btn btn-outline-light"><%= current_user.name %></button>
+            <!--<button type="button" class="btn btn-outline-light"><%# current_user.name %></button>-->
+            <%= link_to user_path(current_user), class:"btn btn-outline-light", method: :get do %>
+              <%=current_user.name%>
+            <% end %>
             <button type="button" class="btn btn-outline-light dropdown-toggle dropdown-toggle-split" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <span class="sr-only">Toggle Dropdown</span>
             </button>

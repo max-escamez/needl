@@ -1,0 +1,7 @@
+<%= image_tag(@user.image, size: "45", class: "rounded") %>
+<%= @user.name %>
+<div>
+  <%= link_to 'Submissions', user_path(@user,filter: "submissions") %>
+  <%= link_to 'Following', user_path(@user,filter: "following") %>
+</div>
+<%= render 'vinyls/grid'%>

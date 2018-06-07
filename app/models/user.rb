@@ -10,6 +10,6 @@ class User < ApplicationRecord
       user.save!
     end
   end
-  has_many :vinyls
+  has_many :vinyls, :dependent => :destroy
   has_many :comments, :dependent => :destroy
 end

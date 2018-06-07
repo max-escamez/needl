@@ -7,7 +7,7 @@
     </div>
 
     <div class="show-info">
-      Posted by : <%= @vinyl.user.name %>
+      Posted by : <%= link_to @vinyl.user.name , user_path(@vinyl.user) %>
 
       <div class="control-panel">
         <% if @vinyl.user == current_user %>
@@ -38,7 +38,6 @@
 
         <%= @vinyl.get_upvotes.size %> people need this vinyl
       </div>
-
     </div>
   </div>
 </div>

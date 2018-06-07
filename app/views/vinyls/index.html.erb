@@ -1,18 +1,10 @@
-<div class="vinyls" align="center">
-  <% @vinyls.each do |vinyl| %>
-    <%= link_to vinyl_path(vinyl) do %>
-      <div class="vinyl shadow rounded">
-        <% if vinyl.image.attached? %>
-          <%= image_tag(vinyl.image.variant(resize: "300x300"), class: "img-fluid cover") %>
-        <% end %>
-        <div class="vinyl-overlay">
-          <div class="album-title-overlay text-capitalize text-truncate"><%= vinyl.album_title %></div>
-          <div class="artist-overlay text-capitalize text-truncate"><%= vinyl.artist %></div>
-        </div>
-      </div>
-    <% end %>
-  <% end %>
+<div>
+  <%= link_to 'Filter by dates', vinyls_index_path(filter: "date") %>
+  <%= link_to 'Filter by votes', vinyls_index_path(filter: "vote") %>
 </div>
+
+<%= render '/vinyls/grid'%>
+
 
 <%= link_to new_vinyl_path do %>
   <div class="btn-floating">
