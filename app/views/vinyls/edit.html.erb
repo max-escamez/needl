@@ -1,28 +1,53 @@
-<h1>Edit your vinyl</h1>
+<div class="edit-vinyl">
+  <h2 align="center">Edit your vinyl</h2>
+  <%= form_with model: @vinyl, local: true do |form| %>
+    <div class="vinyl-details-container">
+      <div class="show">
+        <div class="show-cover ">
+          <% if @vinyl.image.attached? %>
+            <%= image_tag @vinyl.image.variant(resize: "500x500"), class: "img-fluid shadow rounded" %>
+          <% end %>
+        </div>
 
-<%= form_with model: @vinyl, local: true do |form| %>
+        <div class="show-info">
+          <div class="info-top">
+            <div class="info-primary">
+              <h1><%= @vinyl.album_title %></h1>
+              <h5>
+                <%= @vinyl.artist %>
+              </h5>
+            </div>
+            <div class="info-user">
+              <div class="user-profile">
+                <%= link_to @vinyl.user.name , user_path(@vinyl.user), class: 'username' %>
+                <%= link_to user_path(@vinyl.user) do %>
+                  <%= image_tag @vinyl.user.image, size: "45", class: "rounded-circle" %>
+                <% end %>
+              </div>
+            </div>
+          </div>
 
-  <p><h1><%= @vinyl.album_title %></h1>
+          <div class="info-body">
+            <p>
+              <%= form.label :description %><br>
+              <%= form.text_area :description , class:"form-control", rows:"3", autocomplete: "off"%>
+            </p>
+          </div>
 
-  <p>
-    <%= @vinyl.artist %>
-  </p>
+          <div class="info-bot">
+            <div class="info-extended">
+              <button class="btn btn-lg btn-block btn-raised btn-success btn-need" disabled>NEED</button>
+            </div>
+            <div class="backers"><%= @vinyl.get_upvotes.size %> people need this vinyl</div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <% if @vinyl.image.attached? %>
-    <p>
-      <%= image_tag @vinyl.image.variant(resize: "500x500")%>
-    </p>
+    <div class="edit-btn-group">
+      <%= link_to "Cancel", vinyl_path(@vinyl) ,class:"btn btn-lg btn-raised btn-secondary btn-cancel" %>
+      <%= form.submit "Submit", class:"btn btn-lg btn-raised btn-success btn-submit" %>
+    </div>
+
   <% end %>
-  
-  <p>
-    <%= form.label :description %><br>
-    <%= form.text_area :description %>
-  </p>
-
-  <p>
-    <%= form.submit "Submit"%>
-  </p>
-
-<% end %>
-
-<%= link_to 'Back', vinyls_path %>
+</div>

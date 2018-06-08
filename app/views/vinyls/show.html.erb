@@ -18,15 +18,15 @@
           <div class="user-profile">
             <%= link_to @vinyl.user.name , user_path(@vinyl.user), class: 'username' %>
             <%= link_to user_path(@vinyl.user) do %>
-              <%= image_tag @vinyl.user.image, size: "45", class: "rounded" %>
+              <%= image_tag @vinyl.user.image, size: "45", class: "rounded-circle" %>
             <% end %>
           </div>
           <div class="control-panel">
             <% if @vinyl.user == current_user %>
-              <%= link_to 'Edit', edit_vinyl_path(@vinyl), class: " btn-sm btn-control btn-edit" %>
+              <%= link_to 'Edit', edit_vinyl_path(@vinyl), class: " btn btn-sm btn-secondary btn-control btn-edit" %>
               <%= link_to 'Delete', vinyl_path(@vinyl),
                           method: :delete,
-                          data: {confirm: 'Are you sure?'}, class: " btn-sm btn-control btn-delete" %>
+                          data: {confirm: 'Are you sure?'}, class: " btn btn-sm btn-secondary btn-control btn-delete" %>
             <% end %>
           </div>
         </div>
@@ -40,11 +40,10 @@
 
       <div class="info-bot">
         <div class="info-extended">
-          <%= link_to need_vinyl_path(@vinyl), class: "btn btn-lg btn-block btn-success btn-need", method: :put do %>
+          <%= link_to need_vinyl_path(@vinyl), class: "btn btn-lg btn-block btn-raised btn-success btn-need", method: :put do %>
             NEED
           <% end %>
-
-          <%= link_to nevermind_vinyl_path(@vinyl), class: "btn btn-lg btn-block btn-warning btn-nevermind", method: :put do %>
+          <%= link_to nevermind_vinyl_path(@vinyl), class: "btn btn-lg btn-block btn-raised btn-warning btn-nevermind", method: :put do %>
             NEVERMIND
           <% end %>
         </div>
@@ -56,13 +55,9 @@
 
 
 <div class="comments-section">
-  <div class="comments-submit">
-    <h2>Add a comment:</h2>
-    <%= render 'comments/form', comment: nil %>
-
-    <h2>Comments</h2>
-    <%= comments_tree_for @comments %>
-  </div>
+  <h2>Comments</h2>
+  <%= render 'comments/form', comment: nil %>
+  <%= comments_tree_for @comments %>
 </div>
 
 

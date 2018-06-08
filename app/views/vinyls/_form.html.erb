@@ -19,18 +19,18 @@
 
       <div class="form-fill" >
         <p>
-          <%= form.label "Album" %><br>
-          <%= form.text_field :album_title, required: true ,class:"form-control" %>
+          <%= form.label "Album"%><br>
+          <%= form.text_field :album_title, required: true ,class:"form-control", autocomplete: "off" %>
         </p>
 
         <p>
           <%= form.label :artist %><br>
-          <%= form.text_field :artist, required: true ,class:"form-control"%>
+          <%= form.text_field :artist, required: true ,class:"form-control", autocomplete: "off"%>
         </p>
 
         <p>
           <%= form.label :description %><br>
-          <%= form.text_field :description , class:"form-control"%>
+          <%= form.text_area :description , class:"form-control", rows:"3", autocomplete: "off"%>
         </p>
 
         <p>
@@ -52,7 +52,7 @@
 
     </div>
 
-    <%= form.submit "Submit", class:"btn btn-control btn-submit" %>
+    <%= form.submit "Submit", class:"btn-lg btn-control btn-submit" %>
 
   </div>
 

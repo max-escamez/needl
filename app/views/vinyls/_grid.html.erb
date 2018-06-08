@@ -1,15 +1,15 @@
 <div class="vinyls" align="center">
-  <% @vinyls.each do |vinyl| %>
-    <%= link_to vinyl_path(vinyl) do %>
-      <div class="vinyl shadow rounded">
-        <% if vinyl.image.attached? %>
-          <%= image_tag(vinyl.image.variant(resize: "300x300"), class: "img-fluid cover") %>
-        <% end %>
-        <div class="vinyl-overlay">
-          <div class="album-title-overlay text-capitalize text-truncate"><%= vinyl.album_title %></div>
-          <div class="artist-overlay text-capitalize text-truncate"><%= vinyl.artist %></div>
-        </div>
+<% @vinyls.each do |vinyl| %>
+  <%= link_to vinyl_path(vinyl) do %>
+    <div class="vinyl shadow rounded">
+      <% if vinyl.image.attached? %>
+        <%= image_tag(vinyl.image.variant(resize: "300x300"), class: "img-fluid cover") %>
+      <% end %>
+      <div class="vinyl-overlay">
+        <div class="album-title-overlay text-capitalize text-truncate"><%= vinyl.album_title %></div>
+        <div class="artist-overlay text-capitalize text-truncate"><%= vinyl.artist %></div>
       </div>
-    <% end %>
+    </div>
   <% end %>
+<% end %>
 </div>
