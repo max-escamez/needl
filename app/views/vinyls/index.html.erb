@@ -1,6 +1,13 @@
 <div>
-  <%= link_to 'Filter by dates', vinyls_index_path(filter: "date") %>
+  <%= link_to 'Filter by dates', vinyls_index_path %>
   <%= link_to 'Filter by votes', vinyls_index_path(filter: "vote") %>
+
+  <% if @sort=="vote" %>
+    Sorted by votes
+  <% else %>
+    Sorted by dates
+  <% end %>
+
 </div>
 
 <%= render '/vinyls/grid'%>

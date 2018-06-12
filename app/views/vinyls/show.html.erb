@@ -35,32 +35,21 @@
       <div class="info-body">
         <p>
           <%= @vinyl.description %>
-          <% artist=@wrapper.search(@vinyl.artist, :per_page => 1, :type => :artist).results.first %>
-          <%# album=@wrapper.search(@vinyl.album_title, :per_page => 1, :type => :release).results.first %>
-          <% unless artist.nil? %>
-            <%=@wrapper.get_artist(artist.id).profile%>
-          <% end %>
-          <br>
-          <br>
-          <%#album=@wrapper.get_artist_releases(artist.id).releases.first%>
-          <%# unless album.nil? %>
-            <%# (1..album.tracklist.size-1).each do |each|%>
-              <%#album.tracklist[each].title %>
-              <br>
-            <%# end %>
-          <%# end %>
         </p>
       </div>
 
       <div class="info-bot">
         <div class="info-extended">
-          <%= link_to need_vinyl_path(@vinyl), class: "btn btn-lg btn-block btn-success btn-need", method: :put do %>
-            NEED
-          <% end %>
-
-          <%= link_to nevermind_vinyl_path(@vinyl), class: "btn btn-lg btn-block btn-warning btn-nevermind", method: :put do %>
-            NEVERMIND
-          <% end %>
+          <%if current_user.nil? or !current_user.voted_as_when_voted_for @vinyl%>
+            <%= link_to need_vinyl_path(@vinyl), class: "btn btn-lg btn-block btn-success btn-need", method: :put do %>
+              NEED
+            <% end %>
+          <%else%>
+            <%= link_to nevermind_vinyl_path(@vinyl), method: :put do %>
+              NEVERMIND
+            <% end %>
+            <%# link_to nevermind_vinyl_path(@vinyl), class: "btn btn-lg btn-block btn-warning btn-nevermind", method: :put do %>
+          <%end%>
         </div>
         <div class="backers"><%= @vinyl.get_upvotes.size %> people need this vinyl</div>
       </div>

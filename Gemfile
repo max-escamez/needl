@@ -83,6 +83,8 @@ gem 'omniauth-google-oauth2', '~> 0.2.1'
 
 gem 'discogs-wrapper'
 
+gem 'order_as_specified'
+
 
 
 
