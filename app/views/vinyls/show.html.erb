@@ -40,12 +40,16 @@
 
       <div class="info-bot">
         <div class="info-extended">
-          <%= link_to need_vinyl_path(@vinyl), class: "btn btn-lg btn-block btn-raised btn-success btn-need", method: :put do %>
-            NEED
-          <% end %>
-          <%= link_to nevermind_vinyl_path(@vinyl), class: "btn btn-lg btn-block btn-raised btn-warning btn-nevermind", method: :put do %>
-            NEVERMIND
-          <% end %>
+          <%if current_user.nil? or !current_user.voted_as_when_voted_for @vinyl%>
+            <%= link_to need_vinyl_path(@vinyl), class: "btn btn-lg btn-block btn-raised btn-success btn-need", method: :put do %>
+              NEED
+            <% end %>
+          <%else%>
+            <%= link_to nevermind_vinyl_path(@vinyl), class:'btn btn-lg btn-block btn-raised btn-warning btn-nevermind', method: :put do %>
+              NEVERMIND
+            <% end %>
+            <%# link_to nevermind_vinyl_path(@vinyl), class: "btn btn-lg btn-block btn-warning btn-nevermind", method: :put do %>
+          <%end%>
         </div>
         <div class="backers"><%= @vinyl.get_upvotes.size %> people need this vinyl</div>
       </div>

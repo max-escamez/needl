@@ -3,29 +3,26 @@ class VinylsController < ApplicationController
   before_action :require_login, only: [:new, :create, :edit, :update, :destroy, :upvote, :downvote]
 
   def index
-    #@vinyls = Vinyl.all
     @vinyls = Vinyl.where(nil)
     if params[:filter] == "vote"
       @vinyls = @vinyls.sort_by_votes
-    elsif params[:filter] == "date"
-      @vinyls = @vinyls.sort_by_dates
+      @sort = "vote"
     elsif params[:filter] == "search"
       @vinyls = @vinyls.artist_starts_with("Lee")
-      @vinyls = @vinyls.album_starts_with("Twist")
-    elsif params[:filter] == "submissions"
-      @vinyls = @vinyls.user_submissions(params[:user_id])
-    elsif params[:filter] == "following"
-      @vinyls = @vinyls.user_following(params[:user_id])
+    else
+      @vinyls = @vinyls.sort_by_dates
     end
   end
 
   def show
     @vinyl = Vinyl.find(params[:id])
     @comments = @vinyl.comments.hash_tree(limit_depth: 2)
+    #@wrapper = Discogs::Wrapper.new("needl", user_token: "ZjgMvwfSVnQhbsgXnhulvQvBHmqBbtrWtrARWUjD")
   end
 
   def new
     @vinyl = Vinyl.new
+
   end
 
   def edit

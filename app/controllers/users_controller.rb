@@ -2,14 +2,12 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    id=@user.id
-    #could we grab specific vinyls or just stick to all of them ?
     @vinyls = Vinyl.where(nil)
     if params[:filter] == "following"
-      @vinyls = @vinyls.user_following(id)
+      votes=@user.votes.where(vote_flag: 1).order(updated_at: :desc).up.votables
+      @vinyls = @vinyls.where(:id => votes).order_as_specified(:id => votes)
     else
-      @vinyls = @vinyls.user_submissions(id)
+      @vinyls = @vinyls.user_submissions(@user.id)
     end
   end
-
 end

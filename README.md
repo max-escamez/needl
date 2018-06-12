@@ -22,8 +22,9 @@ You can directly access the album and artist names of the vinyl without actually
 ![Alt Text](https://github.com/maxime-escamez/needl/blob/master/images/animation.gif)
 <br />
 <br />
+We've also added filters to display certain types of vinyls (by date and number of votes).
 ```diff
--Later on, we'll add filters to display only certain types of vinyls and also a search function. This is coming very soon !
+-A full text search function is being worked on
 ```
 ## Login
 
@@ -51,14 +52,15 @@ Right after you created your vinyl or when clicking on one from the home page, y
 <br />
 ![picture alt](images/show.png) <br />
 <br />
-Here you will be able to back this vinyl (meaning you want it pressed too).
-You can also comment on this vinyl right below.
-```diff
--Comments will also have replies. Right now this is WOP.
-```
+Here you are able to back this vinyl (meaning you want it pressed too). You also have informations taken 
+directly from the Discogs API.
+You can also comment on this vinyl right below. Comments now have nested replies :<br />
+<br />
+![picture alt](images/comment.png) <br />
+<br />
 
 
 ## Profile Page
 ```diff
--This is completely WOP, but basically you will be able to access the vinyls you submitted and the ones you backed.
+-The profile page is WIP but coming very soon !
 ```

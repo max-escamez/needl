@@ -16,11 +16,11 @@
 
 <body>
 
-<nav class="navbar sticky-top navbar-expand-lg navbar-dark">
-  <%= link_to vinyls_path do %>
-    <% image_tag "NeedlLogo.png", class: "navbar-logo" %>
-  <% end %>
-  <%= link_to "needl", vinyls_path, class: "navbar-brand" %>
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark">
+    <%= link_to vinyls_path do %>
+      <% image_tag "NeedlLogo.png", class: "navbar-logo" %>
+    <% end %>
+    <%= link_to "needl", vinyls_index_path, class:"navbar-brand" %>
 
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
