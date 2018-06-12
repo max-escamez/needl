@@ -4,7 +4,7 @@
       <div class="comment-group-left">
         <div class="comment-left">
           <%= link_to user_path(comment.user) do %>
-            <%= image_tag comment.user.image, size: "45", class: "rounded" %>
+            <%= image_tag comment.user.image, size: "45", class: "rounded-circle" %>
           <% end %>
           <a class="btn-reply" id="btn-reply_<%=comment.id %>">Reply</a>
         </div>

@@ -40,6 +40,7 @@ class VinylsController < ApplicationController
   end
 
   def update
+    @vinyl = current_user.vinyls.find(params[:id])
     if current_user.vinyls.find(params[:id]).update(vinyl_params)
       redirect_to @vinyl
     else

@@ -4,6 +4,20 @@
 $primary-color: #5F7C8B;
 $accent-color: #577280;
 
+.form-comment{
+  margin-bottom: 0;
+  .comment-submit{
+    .btn-comment-submit{
+      display: none;
+      margin-top: 0.6rem;
+    }
+    .btn-reply-submit{
+      margin-top: 0.6rem;
+    }
+  }
+}
+
+
 .comment-replies{
   display: flex;
   flex-direction: column;

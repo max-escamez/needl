@@ -1,17 +1,23 @@
-<div>
-  <%= link_to 'Filter by dates', vinyls_index_path %>
-  <%= link_to 'Filter by votes', vinyls_index_path(filter: "vote") %>
-
+<div class="index">
+  <div class="filter">
+    Filter
+    <div class="dropdown btn-group-filters">
+      <button class="btn bmd-btn-icon dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+        <i class="material-icons">filter_list</i>
+      </button>
+      <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenu1">
+        <%= link_to 'Filter by dates', vinyls_index_path, class:'btn-date-filter dropdown-item'%>
+        <%= link_to 'Filter by votes', vinyls_index_path(filter: "vote"), class:'btn-date-filter dropdown-item'%>
+      </ul>
+    </div>
+  </div>
   <% if @sort=="vote" %>
     Sorted by votes
   <% else %>
     Sorted by dates
   <% end %>
-
+  <%= render '/vinyls/grid' %>
 </div>
-
-<%= render '/vinyls/grid'%>
-
 
 <%= link_to new_vinyl_path do %>
   <div class="btn-floating">

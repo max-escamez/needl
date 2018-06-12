@@ -1,21 +1,20 @@
-<%= form_with(model: [ @vinyl, @vinyl.comments.build ], local: true) do |form| %>
-  <p>
-    <% unless comment.nil? %>
-      <% if comment.parent_id.nil? %>
-        <%= form.hidden_field :parent_id, value: comment.id %>
-      <%else%>
-        <%= form.hidden_field :parent_id, value: comment.parent_id %>
-      <%end%>
-  <%end%>
-    <%= form.text_field :body , required: true, class:"form-control"%>
-  </p>
-  <p>
-    <% if comment.nil? %>
-      <%= form.submit "Comment", class:"btn btn-control" %>
+<%= form_with(model: [@vinyl, @vinyl.comments.build], local: true, class: "form-comment") do |form| %>
+  <% unless comment.nil? %>
+    <% if comment.parent_id.nil? %>
+      <%= form.hidden_field :parent_id, value: comment.id %>
     <% else %>
-      <%= form.submit "Reply", class:"btn btn-control" %>
-    <%end%>
-  </p>
+      <%= form.hidden_field :parent_id, value: comment.parent_id %>
+    <% end %>
+  <% end %>
+  <div class="comment-submit">
+    <% if comment.nil? %>
+      <%= form.text_field :body, required: true, class: "form-control comment-textfield", id: "body-comment-submit", autocomplete: "off", placeholder: "Add a comment" %>
+      <%= form.submit "Comment", class: "btn btn-control btn-comment-submit" %>
+    <% else %>
+      <%= form.text_field :body, required: true, class: "form-control reply-textfield", id: "body-reply-submit_"+comment.id.to_s, autocomplete: "off", placeholder: "Add a reply" %>
+      <%= form.submit "Reply", class: "btn btn-control btn-reply-submit" , id:"btn-reply-submit_"+comment.id.to_s, :disabled => true %>
+    <% end %>
+  </div>
 <% end %>
 
 

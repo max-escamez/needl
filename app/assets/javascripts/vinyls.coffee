@@ -22,6 +22,10 @@ $(document).on 'turbolinks:load', ->
     console.log files
     return
 
+  $('.btn-vote-filter').onclick ->
+    $(this).addClass('active')
+    return
+
 $(document).ready ->
   $('.btn-need').click ->
     $('.btn-nevermind').toggle()

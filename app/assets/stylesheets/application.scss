@@ -22,9 +22,37 @@ body{
     font-family: 'Montserrat', sans-serif !important;
 }
 
+textarea, input{
+  box-shadow:none !important;
+}
+
 .navbar {
-    background-color: #5F7C8B;
-    margin-bottom: 20px;
+  background-color: #5F7C8B;
+  margin-bottom: 1.5rem;
+
+  .navbar-content{
+
+    .login{
+      .search{
+        margin-right: 4rem;
+        color: white !important;
+      }
+
+      .btn-profile{
+        display: inline-block;
+        .username{
+          color: white !important;
+          margin-right: 0.6rem;
+        }
+        #profileDropdown{
+          cursor: pointer !important;
+        }
+      }
+    }
+
+  }
+
+
 }
 
 .icon-test{
@@ -54,9 +82,7 @@ a.navbar-brand {
     border-radius: 24px;
 }
 
-.btn-profile{
-    margin: 0 15px 0 10px;
-}
+
 
 .replies{
   margin-left: 3rem;
