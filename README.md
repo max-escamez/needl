@@ -22,7 +22,10 @@ You can directly access the album and artist names of the vinyl without actually
 ![Alt Text](https://github.com/maxime-escamez/needl/blob/master/images/animation.gif)
 <br />
 <br />
-We've also added filters to display certain types of vinyls (by date and number of votes).
+We've also added filters to display certain types of vinyls (by date and number of votes).<br />
+<br />
+![picture alt](images/filters.png)<br />
+<br />
 ```diff
 -A full text search function is being worked on
 ```
@@ -50,15 +53,30 @@ From there, you only have to click on submit.
 ## Access a Vinyl
 Right after you created your vinyl or when clicking on one from the home page, you will access its own page.<br />
 <br />
-![picture alt](images/show.png) <br />
+![picture alt](images/show1.png) <br />
 <br />
-Here you are able to back this vinyl (meaning you want it pressed too). You also have informations taken 
-directly from the Discogs API.
-You can also comment on this vinyl right below. Comments now have nested replies :<br />
+Here you are able to back this vinyl (meaning you want it pressed too) by clicking on the NEED button. Once you click on it you're able to change your mind but clicking the NEVERMIND button.<br />
+<br />
+![picture alt](images/show2.png) <br />
+<br />
+If you'd like to edit the description in your vinyl, you can do that too. <br />
+<br />
+![picture alt](images/edit.png) <br />
+<br />
+You can also comment on this vinyl right below. Comments now have nested replies. <br />
 <br />
 ![picture alt](images/comment.png) <br />
 <br />
-
+<br />
+![picture alt](images/reply.png) <br />
+<br />
+Submitting a comment has a dynamic field so you don't send an empty comment accidentally. <br />
+<br />
+![picture alt](images/submitcomment1.png) <br />
+<br />
+<br />
+![picture alt](images/submitcomment1.png) <br />
+<br />
 
 ## Profile Page
 ```diff
