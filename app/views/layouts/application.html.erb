@@ -31,9 +31,13 @@
         All the records we need
       </span>
     <div class="login navbar-nav ml-auto">
-      <form class="form-inline my-2 my-lg-0">
+      <form class="form-inline my-2 my-lg-0 search">
         <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-        <%= link_to 'Search', vinyls_index_path(filter: "search"), class: 'btn btn-outline-success my-2 my-sm-0 mr-lg-5' %>
+        <%= link_to vinyls_index_path(filter: "search") do %>
+          <button type="button" class="btn bmd-btn-icon">
+            <i class="material-icons md-light btn-search">search</i>
+          </button>
+        <% end %>
       </form>
 
       <% if current_user %>

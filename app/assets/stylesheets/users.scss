@@ -2,6 +2,9 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+$primary-color: #5F7C8B;
+$accent-color: #577280;
+
 .user{
   display: flex;
   flex-direction: column;
@@ -16,12 +19,13 @@
       margin-right: 2rem;
     }
   }
+  .nav-tabs .nav-link:focus, .nav-tabs .nav-link:hover {
+    border-color: $primary-color;
+  }
 
   .filter-submissions{
-    margin: 0.5rem;
   }
   .filter-submissions{
-    margin: 0.5rem;
   }
 
   .user-vinyls{
