@@ -2,3 +2,31 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.user{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 10% 2rem 10%;
+
+  .user-profile{
+    display: flex;
+    align-items: center;
+    margin-bottom: 2rem;
+    .user-name{
+      margin-right: 2rem;
+    }
+  }
+
+  .filter-submissions{
+    margin: 0.5rem;
+  }
+  .filter-submissions{
+    margin: 0.5rem;
+  }
+
+  .user-vinyls{
+    width: 100%;
+    margin-top: 2rem;
+
+  }
+}

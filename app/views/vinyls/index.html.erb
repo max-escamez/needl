@@ -1,6 +1,10 @@
 <div class="index">
   <div class="filter">
-    Filter
+    <% if @sort=="vote" %>
+      Sorted by votes
+    <% else %>
+      Sorted by dates
+    <% end %>
     <div class="dropdown btn-group-filters">
       <button class="btn bmd-btn-icon dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
         <i class="material-icons">filter_list</i>
@@ -11,11 +15,6 @@
       </ul>
     </div>
   </div>
-  <% if @sort=="vote" %>
-    Sorted by votes
-  <% else %>
-    Sorted by dates
-  <% end %>
   <%= render '/vinyls/grid' %>
 </div>
 

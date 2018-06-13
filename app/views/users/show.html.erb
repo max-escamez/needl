@@ -1,7 +1,13 @@
-<%= image_tag(@user.image, size: "45", class: "rounded") %>
-<%= @user.name %>
-<div>
-  <%= link_to 'Submissions', user_path(@user,filter: "submissions") %>
-  <%= link_to 'Following', user_path(@user,filter: "following") %>
+<div class="user">
+  <div class="user-profile">
+    <h2 class="user-name"><%= @user.name %> </h2>
+    <%= image_tag(@user.image, size: "80", class: "user-pic rounded-circle") %>
+  </div>
+  <div>
+    <%= link_to 'Submissions', user_path(@user,filter: "submissions"), class: "filter-submissions" %>
+    <%= link_to 'Following', user_path(@user,filter: "following"), class: "filter-following" %>
+  </div>
+  <div class="user-vinyls">
+    <%= render 'vinyls/grid'%>
+  </div>
 </div>
-<%= render 'vinyls/grid'%>
