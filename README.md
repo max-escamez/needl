@@ -78,6 +78,7 @@ Submitting a comment has a dynamic field so you don't send an empty comment acci
 
 
 ## Profile Page
-```diff
--The profile page is WIP but coming very soon !
-```
+You can access your own profile page or other's by clicking on their name or picture. From there, you will be able to access the vinyls the user submitted to **needl** and what he or she is following. <br />
+<br />
+![picture alt](images/profile.png) <br />
+<br />
