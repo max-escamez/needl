@@ -69,15 +69,13 @@ You can also comment on this vinyl right below. Comments now have nested replies
 <br />
 Here's how submitting a reply actually looks.<br />
 <br />
-![picture alt](images/reply.png) <br />
+![Alt Text](https://github.com/maxime-escamez/needl/blob/master/images/reply.gif) <br />
 <br />
 Submitting a comment has a dynamic field so you don't send an empty comment accidentally. <br />
 <br />
-![picture alt](images/submitcomment1.png) <br />
+![Alt Text](https://github.com/maxime-escamez/needl/blob/master/images/dynafield.gif) <br />
 <br />
-<br />
-![picture alt](images/submitcomment2.png) <br />
-<br />
+
 
 ## Profile Page
 ```diff
