@@ -22,7 +22,6 @@ class VinylsController < ApplicationController
 
   def new
     @vinyl = Vinyl.new
-
   end
 
   def edit
