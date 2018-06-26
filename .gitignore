@@ -32,3 +32,5 @@ db/needl_database*
 # Jetbrains stuff
 .idea/*
 .env
+
+omniauth.rb
