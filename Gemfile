@@ -85,6 +85,8 @@ gem 'discogs-wrapper'
 
 gem 'order_as_specified'
 
+gem 'rspec', '~> 3.0'
+
 
 
 

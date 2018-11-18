@@ -32,6 +32,7 @@ class VinylsController < ApplicationController
     @vinyl = current_user.vinyls.new(vinyl_params)
     @vinyl.votes=0
     if @vinyl.save
+      @vinyl.upvote_by current_user
       redirect_to @vinyl
     else
       render 'new'

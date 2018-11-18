@@ -14,5 +14,4 @@ class Vinyl < ApplicationRecord
   scope :sort_by_dates, ->  { order("created_at DESC")}
   scope :user_submissions, -> (user_id) { where("user_id=?", "#{user_id}").order("created_at DESC")}
   #scope :user_following, -> (user_id) { where("id in (select votable_id from votes where (voter_id=? and vote_flag=1) order by updated_at DESC)", "#{user_id}").order_as_specified("select votable_id from votes where (voter_id=? and vote_flag=1) order by updated_at DESC")}
-
 end
