@@ -33,4 +33,5 @@ db/needl_database*
 .idea/*
 .env
 
-omniauth.rb
+# Ignore application configuration
+/config/application.yml
