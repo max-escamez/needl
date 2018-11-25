@@ -1,0 +1,39 @@
+  <nav class="navbar sticky-top navbar-expand-lg navbar-dark">
+    <%= link_to vinyls_path do %>
+      <% image_tag "NeedlLogo.png", class: "navbar-logo" %>
+    <% end %>
+    <%= link_to "needl", vinyls_index_path, class:"navbar-brand" %>
+
+  <div class="collapse navbar-collapse navbar-content" id="navbarSupportedContent">
+      <span class="navbar-text my-navbar-text">
+        All the records we need
+      </span>
+    <div class="login navbar-nav ml-auto">
+
+      <form class="form-inline my-2 my-lg-0 search">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <%= link_to vinyls_index_path(filter: "search") do %>
+          <button type="button" class="btn bmd-btn-icon">
+            <i class="material-icons md-light btn-search">search</i>
+          </button>
+        <% end %>
+      </form>
+
+      <% if current_user %>
+        <div class="nav-item dropdown btn-profile">
+          <%= link_to user_path(current_user), class: "username", method: :get do %>
+            <%= current_user.name %>
+          <% end %>
+          <img src="<%= current_user.image %>" class="rounded-circle dropdown-toggle" id="profileDropdown" height="45" width="45" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <ul class="dropdown-menu dropdown-menu-right" aria-labelledby="profileDropdown" id="profile-dropdown-menu">
+            <%= link_to "Profile", user_path(current_user), class: "dropdown-item" %>
+            <div class="dropdown-divider"></div>
+            <%= link_to "Sign out", signout_path, id: "sign_out", class: "dropdown-item" %>
+          </ul>
+        </div>
+      <% else %>
+        <%= link_to "Sign in with Google", "/auth/google_oauth2", id: "sign_in", class: "btn-login btn btn-outline-light" %>
+      <% end %>
+    </div>
+  </div>
+</nav>
